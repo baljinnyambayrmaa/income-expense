@@ -115,27 +115,27 @@ export const SignUp = (props) => {
           name="username"
           type="text"
           placeholder="Name"
-          className="w-full object-fit-contain h-[48px] bg-gray-200 rounded-md px-4 border-2 border-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent "
+          className="w-full object-fit-contain h-[48px] bg-gray-100 rounded-md px-4 border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent "
         />
         <input
           onChange={handleChange}
           name="email"
           type="text"
           placeholder="Email"
-          className="w-full object-fit-contain h-[48px] bg-gray-200 rounded-md px-4 border-2 border-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent "
+          className="w-full object-fit-contain h-[48px] bg-gray-100 rounded-md px-4 border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent "
         />
         <input
           onChange={handleChange}
           type="password"
           name="password"
           placeholder="Password"
-          className="w-full object-fit-contain h-[48px] bg-gray-200 rounded-md px-4 border-2 border-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent "
+          className="w-full object-fit-contain h-[48px] bg-gray-100 rounded-md px-4 border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent "
         />
         <input
           onChange={handleRepassword}
           type="password"
           placeholder="Re-Password"
-          className="w-full object-fit-contain h-[48px] bg-gray-200 rounded-md px-4 border-2 border-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent "
+          className="w-full object-fit-contain h-[48px] bg-gray-100 rounded-md px-4 border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent "
         />
         <button
           onClick={handleSubmit}
