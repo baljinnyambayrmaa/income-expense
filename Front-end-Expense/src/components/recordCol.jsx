@@ -4,7 +4,6 @@ import { ColCategory } from "@/components/ColCategory";
 import { Slider } from "./ui/slider";
 import { useRouter } from "next/router";
 import { useState } from "react";
-
 export const RecordCol = () => {
   return (
     <div className=" bg-[#fff] flex flex-col justify-center px-4 py-6 rounded-xl gap-6">

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { RecordCol } from "@/components/recordCol";
+import { RecordNav } from "@/boards/recordNav";
 
 export default function Home() {
   return (
@@ -17,7 +18,14 @@ export default function Home() {
           <Image src="/Avatar.png" alt="avatar" width={40} height={40} />
         </div>
       </div>
-      <RecordCol />
+      <div className="h-[100%] w-full flex justify-between px-[100px] gap-8">
+        <div className="w-[25%] bg-white h-full rounded-md p-3 flex flex-col gap-6">
+          <RecordCol />
+        </div>
+        <div className="w-[80%] h-[100%] mt-5 flex flex-col gap-3">
+          <RecordNav />
+        </div>
+      </div>
     </div>
   );
 }

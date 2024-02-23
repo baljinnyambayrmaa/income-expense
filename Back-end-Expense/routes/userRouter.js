@@ -1,6 +1,6 @@
 import express from "express";
-import { getLoggedInUserService } from "/Users/23LP6963/Desktop/Project-02-05/Back-end-Expense/controllers/userController.js";
-import { createNewUserService } from "/Users/23LP6963/Desktop/Project-02-05/Back-end-Expense/controllers/userController.js";
+import { getLoggedInUserService } from "../controllers/userController.js";
+import { createNewUserService } from "../controllers/userController.js";
 import { loginUser } from "../middleware/loginUser.js";
 import { tokenCheck } from "../middleware/tokenCheck.js";
 
