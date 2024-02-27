@@ -5,8 +5,12 @@ import { CheckData } from "@/boards/checkData";
 import { MdHomeFilled } from "react-icons/md";
 import { PiForkKnifeFill } from "react-icons/pi";
 import { Modal } from "@/components/modal";
+import { useRouter } from "next/router";
+import { useState } from "react";
 
 export default function Home() {
+  const { push } = useRouter();
+
   const data = [
     {
       icon: <MdHomeFilled size={22} color="#FFF" />,
@@ -104,7 +108,7 @@ export default function Home() {
       <div className="w-screen flex justify-between items-center px-[500px] py-5 bg-white mb-[25px]">
         <div className="flex items-center gap-7 ">
           <Image src="/Vector (1).png" alt="logo" width={40} height={40} />
-          <p className="cursor-pointer">Dashboard</p>
+          <p className="cursor-pointer" onClick={() => push("/dashboard")}>Dashboard</p>
           <p className="heading-4 font-bold cursor-pointer">Records</p>
         </div>
         <div className="flex items-center gap-5">

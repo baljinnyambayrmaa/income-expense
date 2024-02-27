@@ -1,7 +1,8 @@
 import Image from "next/image";
 import { PiCoinsFill } from "react-icons/pi";
 
-export const ConfirmSecond = () => {
+export const ConfirmSecond = (props) => {
+  const { stage = 2, nextHandle } = props;
   return (
     <div className="flex flex-col items-center h-full justify-start mt-[40px] gap-[100px]">
       <div className="flex flex-col items-center gap-[48px]">
@@ -31,7 +32,10 @@ export const ConfirmSecond = () => {
           <p className="text-[12px] text-gray-500">
             How much cash do you have in your wallet?{" "}
           </p>
-          <button className="btn bg-[#0166FF]  text-white  w-full rounded-[20px]">
+          <button
+            className="btn bg-[#0166FF]  text-white  w-full rounded-[20px]"
+            onClick={nextHandle}
+          >
             Confirm
           </button>
         </div>

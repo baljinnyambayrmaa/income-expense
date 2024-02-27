@@ -1,7 +1,10 @@
 import Image from "next/image";
 import { FaMoneyBill } from "react-icons/fa";
+import { Steps } from "./steps";
 
-export const ConfirmFirst = () => {
+export const ConfirmFirst = (props) => {
+  const { stage = 1, nextHandle } = props;
+
   return (
     <div className="flex flex-col items-center h-full justify-start mt-[40px] gap-[100px]">
       <div className="flex flex-col items-center gap-[48px]">
@@ -34,7 +37,10 @@ export const ConfirmFirst = () => {
             Your base currency should be the one you use most often. All
             transaction in other currencies will be calculated based on this one{" "}
           </p>
-          <button className="btn bg-[#0166FF]  text-white  w-full rounded-[20px]">
+          <button
+            className="btn bg-[#0166FF]  text-white  w-full rounded-[20px]"
+            onClick={nextHandle}
+          >
             Confirm
           </button>
         </div>

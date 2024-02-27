@@ -4,11 +4,12 @@ import { useRouter } from "next/router";
 import axios from "axios";
 
 export const SignUp = (props) => {
-  const { stage = true } = props;
   const [show, setShow] = useState(true);
   const [reshow, setReshow] = useState(true);
   const [error, setError] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+
+  const { stage = 0, nextHandle } = props;
 
   // Handles the password visibility
   const handleClick = () => {
@@ -66,9 +67,8 @@ export const SignUp = (props) => {
   }, [userData, repassword]);
 
   // Handles submit and sends the user data to the server
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    console.log(userData);
+  const handleSubmit = async (event) => {
+    event.preventDefault();
     if (
       userData.username === "" ||
       userData.email === "" ||
@@ -86,17 +86,19 @@ export const SignUp = (props) => {
         } else {
           // Sends the user data to the server if the passwords match
           await axios.post(url, userData).then((res) => {
-            if (res.data !== "User already exists") {
-              push("/login");
+            if (res.data === "User already exists") {
+              setErrorMsg("User already exists");
+              setError(true);
             } else {
-              console.log(res.data);
+              nextHandle();
             }
           });
+          // Alerts the user if the
         }
       } catch (err) {
         // Alerts the user if there is an error
+        setErrorMsg(err.message);
         setError(true);
-        setErrorMsg(err.response.data);
       }
     }
   };
@@ -109,7 +111,11 @@ export const SignUp = (props) => {
         <h1 className="text-2xl font-bold">Create Geld account</h1>
         <p>Sign up below to create your Wallet account</p>
       </div>
-      <div className="flex flex-col gap-6 w-full h-1/3">
+      <form
+        className="flex flex-col gap-4 w-full h-1/3"
+        action=""
+        onSubmit={handleSubmit}
+      >
         <input
           onChange={handleChange}
           name="username"
@@ -139,11 +145,11 @@ export const SignUp = (props) => {
         />
         <button
           onClick={handleSubmit}
-          className="w-full h-1/3 bg-blue-500 rounded-xl text-white"
+          className="w-full h-full bg-blue-500 rounded-xl text-white"
         >
           Sign Up
         </button>
-      </div>
+      </form>
       <div>
         <p>
           Already have account?

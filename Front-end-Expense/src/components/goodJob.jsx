@@ -1,7 +1,11 @@
 import Image from "next/image";
 import { MdOutlineDone } from "react-icons/md";
+import { useRouter } from "next/router";
 
-export const GoodJob = () => {
+export const GoodJob = (props) => {
+  const { stage = 2, nextHandle } = props;
+  const { push } = useRouter();
+
   return (
     <div className="flex flex-col items-center h-full justify-start mt-[40px] gap-[100px]">
       <div className="flex flex-col items-center gap-[48px]">
@@ -25,7 +29,10 @@ export const GoodJob = () => {
             Your very first account has been created. Now continue to dashboard
             and start tracking{" "}
           </p>
-          <button className="btn bg-[#0166FF]  text-white  w-full rounded-[20px]">
+          <button
+            className="btn bg-[#0166FF]  text-white  w-full rounded-[20px]"
+            onClick={() => push("/dashboard")}
+          >
             Go to Dashboard
           </button>
         </div>
