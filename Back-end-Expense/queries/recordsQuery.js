@@ -25,6 +25,7 @@ const RecordQuery = async (
   return recordId;
 };
 export const recordsUsers = async (req) => {
+  await Client.connect();
   const { amount, category, date, time, payee, note, expense, userId } =
     req.body;
 
@@ -39,6 +40,7 @@ export const recordsUsers = async (req) => {
       expense,
       userId
     );
+    await Client.end();
     return records;
   } catch (err) {
     console.log(err);

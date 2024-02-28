@@ -10,12 +10,12 @@ export const Client = new pg.Client({
   connectionString: CONNECTION_STRING,
 });
 
-const dbInit = async () => {
-  await Client.connect();
-  await createUserTable();
-  await recordTableUser();
-};
-dbInit();
+// const dbInit = async () => {
+//   await Client.connect();
+//   await createUserTable();
+//   await recordTableUser();
+// };
+// dbInit();
 
 const createUserTable = async () => {
   const userTableCreateQuery = `CREATE TABLE IF NOT EXISTS users(
